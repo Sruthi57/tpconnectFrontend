@@ -1,0 +1,7 @@
+.mat-header-cell {
+  flex: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: #8ca4ba;
+}

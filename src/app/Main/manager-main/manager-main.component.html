@@ -1,0 +1,143 @@
+<div class="manager-container" [class.mat-elevation-z8]="isActive">
+  <h2>Add Flight Details</h2>
+  <form
+    *ngIf="isLoggedIn"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate
+  >
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="flightNumber">FlightNumber</label>
+          <input
+            type="text"
+            class="form-control"
+            name="flightNumber"
+            [(ngModel)]="form.flightNumber"
+            required
+            #flightNumber="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && flightNumber.invalid"
+          >
+            FlightNumber is required!
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="airlineName">AirlineName</label>
+          <input
+            type="text"
+            class="form-control"
+            name="airlineName"
+            [(ngModel)]="form.airlineName"
+            required
+            #airlineName="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && airlineName.invalid"
+          >
+            airlineName is required!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="startLocation">Start Location</label>
+          <input
+            type="text"
+            class="form-control"
+            name="startLocation"
+            [(ngModel)]="form.startLocation"
+            required
+            #startLocation="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && startLocation.invalid"
+          >
+            StartLocation is required!
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input
+            type="text"
+            class="form-control"
+            name="destination"
+            [(ngModel)]="form.destination"
+            required
+            #destination="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && destination.invalid"
+          >
+            Destination is required!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group">
+          <label for="startTime">Start Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="startTime"
+            [(ngModel)]="form.startTime"
+            required
+            #startTime="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && startTime.invalid"
+          >
+            StartTime is required!
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <label for="endTime">End Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="endTime"
+            [(ngModel)]="form.endTime"
+            required
+            #endTime="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && endTime.invalid"
+          >
+            EndTime is required!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">Submit</button>
+    </div>
+  </form>
+</div>

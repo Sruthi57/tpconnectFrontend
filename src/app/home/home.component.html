@@ -1,0 +1,48 @@
+<h2>Flight Details</h2>
+<div *ngIf="show">
+  <button mat-fab color="primary" (click)="add()">Add</button>
+</div>
+<mat-table class="mat-elevation-z8" [dataSource]="FlightData">
+  <ng-container matColumnDef="flightNumber">
+    <mat-header-cell *matHeaderCellDef>Flight Number</mat-header-cell>
+    <mat-cell *matCellDef="let flight">{{ flight.flightNumber }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="airplaneName">
+    <mat-header-cell *matHeaderCellDef>AirLines Name</mat-header-cell>
+    <mat-cell *matCellDef="let flight">{{ flight.airlineName }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="startLocation">
+    <mat-header-cell *matHeaderCellDef>Start Location</mat-header-cell>
+    <mat-cell *matCellDef="let flight">{{ flight.startLocation }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="destination">
+    <mat-header-cell *matHeaderCellDef>Destination</mat-header-cell>
+    <mat-cell *matCellDef="let flight">{{ flight.destination }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="departure">
+    <mat-header-cell *matHeaderCellDef>Departure Time</mat-header-cell>
+    <mat-cell *matCellDef="let flight">{{ flight.startTime }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="arrival">
+    <mat-header-cell *matHeaderCellDef>Arrival Time</mat-header-cell>
+    <mat-cell *matCellDef="let flight">{{ flight.endTime }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+    <mat-cell *matCellDef="let flight">
+      <button mat-fab color="primary" (click)="delete(flight.id)">
+        <mat-icon>delete</mat-icon>
+      </button></mat-cell
+    >
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+</mat-table>
