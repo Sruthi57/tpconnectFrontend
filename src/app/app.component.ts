@@ -27,6 +27,9 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
+    else {
+      this.router.navigate(['/login']);
+    }
   }
 
   logout() {
